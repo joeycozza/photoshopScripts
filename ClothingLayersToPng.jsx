@@ -35,10 +35,6 @@ function loopThroughAllOptions(allLayerSets) {
     
     var matchingTrim = getMatchingTrim(trimMasks, clothingOption);
     
-    var clothingFolderPath = mainFolderPath + '/' + clothingOption.name;
-    var folderObject = new Folder(clothingFolderPath);
-    folderObject.create();
-    
     for(var k = 0; k < fabricSwatches.length; k++) {
       var fabric = fabricSwatches[k];
       fabric.visible = true;
@@ -54,7 +50,7 @@ function loopThroughAllOptions(allLayerSets) {
           dupedColor.grouped = true;
           dupedColor.visible = true;
     
-          saveCurrentStatus(clothingFolderPath + '/' +
+          saveCurrentStatus(mainFolderPath + '/' +
                             fabric.name + '-' + trimColor.name + '-trim' +
                             '.png');	    
           dupedColor.grouped = false;
@@ -62,7 +58,7 @@ function loopThroughAllOptions(allLayerSets) {
         }
         matchingTrim.visible = false;
       } else {
-        saveCurrentStatus(clothingFolderPath + '/' +
+        saveCurrentStatus(mainFolderPath + '/' +
                 fabric.name +
                 '.png');
       }
